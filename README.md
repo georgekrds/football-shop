@@ -28,7 +28,7 @@
 
 ```bash
 git clone https://github.com/georgekrds/football-shop
-cd football-shop-app
+cd football-shop
 ```
 
 ### 2. Εγκατάσταση των Απαραίτητων Βιβλιοθηκών
