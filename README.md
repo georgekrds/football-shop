@@ -8,7 +8,7 @@
 
 Η εφαρμογή χρησιμοποιεί τη βιβλιοθήκη **SQLite** για την τοπική αποθήκευση και διαχείριση των δεδομένων σε αρχείο `.db`.
 
-### [🌐 Η εφαρμογή online στο Streamlit](https://football-shop.streamlit.app/)
+### [🌐 Η εφαρμογή online στο Streamlit](https://football-shop-site.streamlit.app/)
 
 ---
 
