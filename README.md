@@ -1,5 +1,9 @@
 # ⚽ Σύστημα Διαχείρισης Καταστήματος Ποδοσφαίρου
 
+[![Streamlit App](https://img.shields.io/badge/Streamlit-Live_App-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://football-shop-site.streamlit.app/)
+[![Python Version](https://img.shields.io/badge/Python-3.8%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/downloads/)
+[![License](https://img.shields.io/badge/License-MIT-2D9F2D?style=for-the-badge)](https://opensource.org/licenses/MIT)
+
 Η εφαρμογή **ΚΑΤΑΣΤΗΜΑ ΠΟΔΟΣΦΑΙΡΟΥ** είναι ένα ολοκληρωμένο σύστημα διαχείρισης βάσης δεδομένων που δημιουργήθηκε στο πλαίσιο του μαθήματος «Βάσεις Δεδομένων Ι». Επιτρέπει την πλήρη εποπτεία ενός καταστήματος αθλητικών ειδών, προσφέροντας λειτουργίες για:
 
 * **Διαχείριση Πελατών & Προϊόντων**: Προβολή, προσθήκη και διαγραφή εγγραφών.
@@ -19,8 +23,10 @@
 - [Python 3.8 ή νεότερη](https://www.python.org/downloads/)
 - [Pip](https://pip.pypa.io/en/stable/installation/)
 - [Git](https://git-scm.com/downloads)
+  
 
-> **Σημαντικό:** Για τη σωστή λειτουργία της εφαρμογής, τα αρχεία `create.py` και `insert.py` πρέπει να βρίσκονται στον ίδιο κατάλογο με το κύριο αρχείο (`app.py`), καθώς είναι υπεύθυνα για τη δημιουργία και την αρχικοποίηση της βάσης δεδομένων.
+> [!IMPORTANT]
+> Για τη σωστή λειτουργία της εφαρμογής, τα αρχεία `create.py` και `insert.py` πρέπει να βρίσκονται στον ίδιο κατάλογο με το κύριο αρχείο (`app.py`), καθώς είναι υπεύθυνα για τη δημιουργία και την αρχικοποίηση της βάσης δεδομένων.
 
 Για να εκτελέσετε την εφαρμογή στον υπολογιστή σας τοπικά:
 
@@ -43,8 +49,8 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
-> Η εφαρμογή θα ανοίξει αυτόματα στον προεπιλεγμένο browser στη διεύθυνση:
-> `http://localhost:8501`
+> [!NOTE]
+> Η εφαρμογή θα ανοίξει αυτόματα στον προεπιλεγμένο browser στη διεύθυνση: `http://localhost:8501`
 
 ---
 
