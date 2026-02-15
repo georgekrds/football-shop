@@ -29,16 +29,16 @@
 
 Για να εκτελέσετε την εφαρμογή στον υπολογιστή σας τοπικά:
 
-### 1. Κλωνοποίηση του Repository
+### 1. Κλωνοποίηση του Αποθετηρίου
 
-Αν έχετε εγκατεστημένο το [Git](https://git-scm.com/downloads), μπορείτε να κλωνοποιήσετε το αποθετήριο με:
+Αν έχετε εγκατεστημένο το [Git](https://git-scm.com/downloads), μπορείτε να κατεβάσετε το αποθετήριο με:
 
 ```bash
 git clone https://github.com/georgekrds/football-shop
 cd football-shop
 ```
 
-Αν δεν έχετε Git, μπορείτε να κατεβάσετε το repository σε μορφή ZIP και να κάνετε αποσυμπίεση: [Λήψη](https://github.com/georgekrds/football-shop/archive/refs/heads/main.zip)
+Αν δεν έχετε Git, μπορείτε να κατεβάσετε το αποθετήριο σε μορφή ZIP και να κάνετε αποσυμπίεση: [Λήψη](https://github.com/georgekrds/football-shop/archive/refs/heads/main.zip)
 
 ### 2. Εγκατάσταση των Απαραίτητων Βιβλιοθηκών
 
