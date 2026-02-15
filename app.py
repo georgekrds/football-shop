@@ -88,7 +88,7 @@ def page_mng():
     # 3.1.3 ΠΑΡΑΓΓΕΛΙΕΣ
     with tabs[2]:
         q_view = "SELECT o.id, o.order_date, c.full_name AS customer_name, s.full_name AS salesperson_name, o.total_amount, o.status FROM orders o JOIN customers c ON o.customer_id = c.id JOIN salespeople s ON c.salesperson_id = s.id ORDER BY o.id DESC"
-        st.dataframe(run(q_view), width='stretch', hide_index=True); st.divider()
+        st.dataframe(run(q_view), width='stretch', hide_index=True)
         st.divider(); st.subheader("ΕΙΣΑΓΩΓΗ")
         cm = get_map("customers","id","full_name"); cust = st.selectbox("Πελάτης *", list(cm.keys())) if cm else None
         pdf = run("SELECT id, name, sales_price FROM products")
