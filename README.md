@@ -1,10 +1,9 @@
 # ⚽ Σύστημα Διαχείρισης Καταστήματος Ποδοσφαίρου
 
-[![Streamlit App](https://img.shields.io/badge/Streamlit-Live_App-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://football-shop-site.streamlit.app/)
-[![Python Version](https://img.shields.io/badge/Python-3.8%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/downloads/)
-[![SQLite](https://img.shields.io/badge/Database-SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white)](https://www.sqlite.org/)
-[![License](https://img.shields.io/badge/License-MIT-2D9F2D?style=for-the-badge)](https://opensource.org/licenses/MIT)
-
+[![Streamlit App](https://img.shields.io/badge/Streamlit-Live_App-FF4B4B?style=flat&logo=streamlit&logoColor=white)](https://football-shop-site.streamlit.app/)
+[![Python Version](https://img.shields.io/badge/Python-3.8%2B-3776AB?style=flat&logo=python&logoColor=white)](https://www.python.org/downloads/)
+[![SQLite](https://img.shields.io/badge/Database-SQLite-003B57?style=flat&logo=sqlite&logoColor=white)](https://www.sqlite.org/)
+[![License](https://custom-icon-badges.demolab.com/badge/License-MIT-2D9F2D.svg?logo=law&logoColor=white)](https://opensource.org/licenses/MIT)
 
 Η εφαρμογή **Κατάστημα Ποδοσφαίρου** είναι ένα σύστημα διαχείρισης της βάσης δεδομένων που δημιουργήθηκε για την εργασία εξαμήνου του μαθήματος «Βάσεις Δεδομένων Ι». Επιτρέπει την πλήρη εποπτεία ενός καταστήματος αθλητικών ειδών, προσφέροντας λειτουργίες για:
 
