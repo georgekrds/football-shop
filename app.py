@@ -61,27 +61,35 @@ insert.insert_initial_data(conn)
 # 3.1 ΔΙΑΧΕΙΡΙΣΗ
 def page_mng():
     st.header("🛠️ ΔΙΑΧΕΙΡΙΣΗ")
-    tabs = st.tabs(["ΠΕΛΑΤΕΣ", "ΠΡΟΙΟΝΤΑ", "ΠΑΡΑΓΓΕΛΙΕΣ", "ΚΑΤΑΣΤΗΜΑΤΑ", "ΠΩΛΗΤΕΣ"])
+    tabs = st.tabs(["ΠΕΛΑΤΕΣ", "ΠΡΟΙΟΝΤΑ", "ΠΑΡΑΓΓΕΛΙΕΣ", "ΠΩΛΗΤΕΣ", "ΚΑΤΑΣΤΗΜΑΤΑ"])
 
+    # 3.1.1 ΠΕΛΑΤΕΣ
     with tabs[0]:
         st.dataframe(run("SELECT id, full_name, email, phone, city FROM customers ORDER BY id"), width='stretch', hide_index=True)
+        st.divider(); st.subheader("ΕΙΣΑΓΩΓΗ")
         with st.form("nc"):
             c1, c2 = st.columns(2); n = c1.text_input("Όνομα *"); e = c1.text_input("Email *"); ph = c1.text_input("Τηλέφωνο *"); a = c2.text_input("Διεύθυνση *"); ci = c2.text_input("Πόλη *"); sm = get_map("salespeople","id","full_name"); s = c2.selectbox("Πωλητής", list(sm.keys())) if sm else None
             if st.form_submit_button("➕") and n and s: run("INSERT INTO customers (id, full_name, email, phone, address, city, salesperson_id) VALUES (?,?,?,?,?,?,?)", (get_id("customers"),n,e,ph,a,ci,sm[s]), c=True); st.rerun()
+        st.divider(); st.subheader("ΔΙΑΓΡΑΦΗ")
         cm = get_map("customers","id","full_name"); c1, c2 = st.columns([3,1]); d = c1.selectbox("Del:", list(cm.keys()), key='dc_sel', label_visibility="collapsed") if cm else None
         if c2.button("🗑️", key='dc_btn') and d: run("DELETE FROM customers WHERE id=?", (cm[d],), c=True); st.rerun()
 
+    # 3.1.2 ΠΡΟΪΟΝΤΑ
     with tabs[1]:
         st.dataframe(run("SELECT id, name, category, sales_price, stock_quantity, color FROM products"), width='stretch', hide_index=True)
+        st.divider(); st.subheader("ΕΙΣΑΓΩΓΗ")
         with st.form("np"):
             c1, c2 = st.columns(2); n = c1.text_input("Όνομα *"); cat = c1.selectbox("Κατηγορία", ["Ένδυση", "Εξοπλισμός", "Διάφορα"]); p = c1.number_input("Τιμή", step=0.5); stck = c2.number_input("Απόθεμα", step=1); clr = c2.text_input("Χρώμα"); tm = get_map("stores","id","name"); t = c2.selectbox("Κατάστημα", list(tm.keys())) if tm else None
             if st.form_submit_button("➕") and n and t: run("INSERT INTO products (id, name, category, sales_price, stock_quantity, color, store_id) VALUES (?,?,?,?,?,?,?)", (get_id("products"),n,cat,p,stck,clr,tm[t]), c=True); st.rerun()
+        st.divider(); st.subheader("ΔΙΑΓΡΑΦΗ")
         pm = get_map("products","id","name"); c1, c2 = st.columns([3,1]); dp = c1.selectbox("Del:", list(pm.keys()), key='dp_sel', label_visibility="collapsed") if pm else None
         if c2.button("🗑️", key='dp_btn') and dp: run("DELETE FROM products WHERE id=?", (pm[dp],), c=True); st.rerun()
 
+    # 3.1.3 ΠΑΡΑΓΓΕΛΙΕΣ
     with tabs[2]:
         q_view = "SELECT o.id, o.order_date, c.full_name AS customer_name, s.full_name AS salesperson_name, o.total_amount, o.status FROM orders o JOIN customers c ON o.customer_id = c.id JOIN salespeople s ON c.salesperson_id = s.id ORDER BY o.id DESC"
         st.dataframe(run(q_view), width='stretch', hide_index=True); st.divider()
+        st.divider(); st.subheader("ΕΙΣΑΓΩΓΗ")
         cm = get_map("customers","id","full_name"); cust = st.selectbox("Πελάτης *", list(cm.keys())) if cm else None
         pdf = run("SELECT id, name, sales_price FROM products")
         if pdf is not None:
@@ -96,11 +104,15 @@ def page_mng():
                 cur.executemany("INSERT INTO order_items (order_id,product_id,quantity,unit_price,prod_size,color) VALUES (?,?,?,?,?,?)", items)
                 conn.commit(); st.cache_data.clear(); st.session_state.cart = []; st.success("OK"); st.rerun()
             if st.button("🗑️ ΚΑΘΑΡΙΣΜΟΣ"): st.session_state.cart = []; st.rerun()
-        st.divider(); om = get_map("orders","id","id"); c1, c2 = st.columns([3,1]); do = c1.selectbox("Del Order:", list(om.keys()), key='do_sel', label_visibility="collapsed") if om else None
+        st.divider(); st.subheader("ΔΙΑΓΡΑΦΗ")
+        om = get_map("orders","id","id"); c1, c2 = st.columns([3,1]); do = c1.selectbox("Del Order:", list(om.keys()), key='do_sel', label_visibility="collapsed") if om else None
         if c2.button("🗑️", key='do_btn') and do: oid = om[do]; run("DELETE FROM order_items WHERE order_id=?", (oid,), c=True); run("DELETE FROM orders WHERE id=?", (oid,), c=True); st.rerun()
 
-    with tabs[3]: st.dataframe(run("SELECT * FROM stores"), width='stretch', hide_index=True)
-    with tabs[4]: st.dataframe(run("SELECT * FROM salespeople"), width='stretch', hide_index=True)
+    # 3.1.4 ΠΩΛΗΤΕΣ
+    with tabs[3]: st.dataframe(run("SELECT * FROM salespeople"), width='stretch', hide_index=True)
+        
+    # 3.1.5 ΚΑΤΑΣΤΗΜΑΤΑ
+    with tabs[4]: st.dataframe(run("SELECT * FROM stores"), width='stretch', hide_index=True)
 
 # 3.2 ΑΝΑΖΗΤΗΣΗ
 def page_srch():
